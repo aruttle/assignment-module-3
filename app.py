@@ -2,29 +2,26 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route("/test_page")
-def test_page():
-    return render_template("test.html")
-
-@app.route('/')
+@app.route("/")
 def home():
-    return render_template('index.html')
+    return render_template("home.html")
 
-@app.route('/about')
+@app.route("/about")
 def about():
-    return render_template('about.html')
+    return render_template("about.html")
 
-@app.route('/booking')
+@app.route("/booking")
 def booking():
-    return render_template('booking.html')
+    return render_template("booking.html")
 
-@app.route('/gallery')
+@app.route("/gallery")
 def gallery():
-    return render_template('gallery.html')
+    return render_template("gallery.html")
 
-@app.route('/contact')
+@app.route("/contact")
 def contact():
-    return render_template('contact.html')
+    return render_template("contact.html")
 
+# This block runs ONLY during local development
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
