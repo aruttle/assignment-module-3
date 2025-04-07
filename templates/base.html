@@ -1,5 +1,25 @@
-{% extends "base.html" %}
-{% block content %}
-<h1>Gallery</h1>
-<p>Here are our best photos!</p>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Glamping</title>
+</head>
+<body>
+    <header>
+        <h1>Smart Glamping</h1>
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/about">About</a> |
+            <a href="/booking">Booking</a> |
+            <a href="/gallery">Gallery</a> |
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2025 Smart Glamping</p>
+    </footer>
+</body>
+</html>
