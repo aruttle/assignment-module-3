@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {% if success %}
+        <h1>Booking Confirmed! 🎉</h1>
+        <p>Thank you, {{ name }}! Your stay is booked for {{ date }}.</p>
+        <a href="{{ url_for('home') }}">Return Home</a>
+    {% else %}
+        <h1>Book Your Stay</h1>
+        <form method="POST">
+            <label for="name">Full Name:</label>
+            <input type="text" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
+
+            <label for="date">Select Date:</label>
+            <input type="date" name="date" required>
+
+            <button type="submit">Confirm Booking</button>
+        </form>
+    {% endif %}
+</body>
+</html>
