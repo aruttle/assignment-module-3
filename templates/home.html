@@ -19,7 +19,11 @@
   <div class="col-md-4 mb-4">
     <div class="card h-100 shadow-sm">
       <!-- I need to swap the src below with actual image paths -->
-      <img src="{{ url_for('static', filename='images/default.jpg') }}" class="card-img-top" alt="{{ acc.name }}">
+      <img src="{{ url_for('static', filename='images/' ~ acc.image) }}"
+     class="card-img-top"
+     style="height: 200px; object-fit: cover;"
+     alt="{{ acc.name }}">
+
       <div class="card-body d-flex flex-column">
         <h5 class="card-title">{{ acc.name }}</h5>
         <p class="card-text mb-4">€{{ acc.price }}</p>
