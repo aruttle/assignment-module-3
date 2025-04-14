@@ -18,6 +18,11 @@ body {
    
 }
 
+.logo {
+    height: 80px; 
+    width: auto;  
+}
+
 nav.navbar ul li {
     display: inline-block;
     margin-right: 20px;
@@ -64,6 +69,8 @@ nav.navbar ul li a {
     text-decoration: none;
 }
 
+
+
 h1 {
     color: #2c3e50;
     margin-top: 20px;
@@ -77,6 +84,12 @@ h1 {
     padding: 40px 20px; 
     gap: 20px; 
 }
+
+#welcome-section {
+    padding: 0;
+    justify-content: center;
+}
+
 
 body{
     background-image: url("../images/default.jpg");
@@ -125,6 +138,20 @@ form.bg-white {
     border-radius: 12px;
 }
 
-#accommodationsText {
+#accommodations {
+    border-radius:10px;
+    background-image: linear-gradient(#0c0d0f,#0d6efd);
     color: white;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
 }
+
+#accommodation-list {
+    margin-top: 0;
+    padding-top: 0;
+}
+

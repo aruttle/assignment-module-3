@@ -9,20 +9,29 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
         <div class="container">
-            <a class="navbar-brand" href="/">Shanid Glamping</a>
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                Shanid Glamping
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Shanid Glamping Logo" class="logo">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('gallery') }}">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+    <section id="weather-section" class="container mt-5 p-4 bg-light shadow rounded text-center">
+        <div id="weather-container">
+            <h3>🌦 Current Weather</h3>
+            <div id="weather-info">Loading weather...</div>
+        </div>
+    </section>
 
     <div class="container">
         {% block content %}{% endblock %}
@@ -30,5 +39,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script defer src="../static/js/api.js"></script>
 </body>
 </html>

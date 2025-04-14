@@ -4,21 +4,21 @@
 
 {% block content %}
 <!-- Welcome -->
-<div class="p-5 mb-4 bg-light rounded-3">
-  <div class="container py-5">
+<div class="p-5 mb-4 bg-light rounded-3 text-center" id="welcome-section">
+  <div class="container-fluid py-5 text-center">
     <h1 class="display-5 fw-bold">Welcome to Our Glamping Site</h1>
-    <p class="col-md-8 fs-4">Escape to nature with a touch of luxury. Choose your perfect hideaway and unwind in style.</p>
+    <p class="col-md-8 fs-4 text-center" id="welcome-note">Escape to nature with a touch of luxury. Choose your perfect hideaway and unwind in style.</p>
     <a href="#accommodations" class="btn btn-primary btn-lg">Explore Accommodations</a>
   </div>
 </div>
 
-<!-- Accommodations Section -->
-<div class="container my-5" id="accommodations">
-  <h2 class="mb-4 text-center" id="accommodationsText">Available Stays</h2>
-  <div class="row justify-content-center">
+<!-- Accommodation  -->
+<h2 class="mb-4" id="accommodations">Available Stays</h2>
+<div class="container" id="accommodation-list">
+  <div class="row">
     {% for acc in accommodations %}
-    <div class="col-md-6 col-lg-4 mb-4 d-flex">
-      <div class="card h-100 shadow-sm w-100">
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm">
         <img src="{{ url_for('static', filename='images/' ~ acc.image) }}" class="card-img-top" alt="{{ acc.name }}">
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">{{ acc.name }}</h5>
