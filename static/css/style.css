@@ -140,7 +140,7 @@ form.bg-white {
     border-radius: 12px;
 }
 
-#accommodations {
+h2 {
     border-radius:10px;
     background-image: linear-gradient(#0c0d0f,#0d6efd);
     color: white;
