@@ -49,11 +49,17 @@ def book(acc_id):
     if request.method == "POST":
         name = request.form["name"]
         email = request.form["email"]
-        acc["available"] = False  # Mark as booked
-        print(f"Booking confirmed: {acc['name']} for {name} ({email})")
+        start_date = request.form["start_date"]
+        end_date = request.form["end_date"]
+
+        # Log or process the booking
+        print(f"Booking confirmed: {acc['name']} for {name} ({email}) from {start_date} to {end_date}")
+        
+        acc["available"] = False  # Mark as booked (simulation)
         return redirect(url_for("home"))
 
     return render_template("booking.html", accommodation=acc)
+
 
 
 if __name__ == "__main__":
