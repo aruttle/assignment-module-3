@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 
 {% block title %}Home{% endblock %}
 
@@ -7,13 +7,15 @@
 <div class="p-5 mb-4 bg-light rounded-3 text-center" id="welcome-section">
   <div class="container-fluid py-5 text-center">
     <h1 class="display-5 fw-bold">Welcome to Our Glamping Site</h1>
-    <p class="col-md-8 fs-4 text-center" id="welcome-note">Escape to nature with a touch of luxury. Choose your perfect hideaway and unwind in style.</p>
+    <p class="fs-4 mx-auto" id="welcome-note" style="max-width: 800px;">
+      Escape to nature with a touch of luxury. Choose your perfect hideaway and unwind in style.
+    </p>
     <a href="#accommodations" class="btn btn-primary btn-lg">Explore Accommodations</a>
   </div>
 </div>
 
-<!-- Accommodation  -->
-<h2 class="mb-4" id="accommodations">Available Stays</h2>
+<!-- Accommodation -->
+<h2 class="mb-4 text-center" id="accommodations">Available Stays</h2>
 <div class="container" id="accommodation-list">
   <div class="row">
     {% for acc in accommodations %}

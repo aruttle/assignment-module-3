@@ -20,7 +20,9 @@ body {
 
 .logo {
     height: 80px; 
-    width: auto;  
+    width: auto; 
+    padding-left: 10px; 
+    padding-bottom: 10px;
 }
 
 nav.navbar ul li {
