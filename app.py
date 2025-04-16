@@ -15,7 +15,7 @@ accommodations = [
     {"id": 3, "name": "Treehouse", "price": 180, "available": True, "image": "treehouse.jpg"},
 ]
 
-# Fallback for image
+# Fallback image
 for acc in accommodations:
     acc.setdefault("image", "default.jpg")
 
@@ -26,12 +26,12 @@ def load_bookings():
             return json.load(f)
     return []
 
-# Save bookings to file
-def save_booking(booking):
+# Save new booking
+def save_booking(new_booking):
     bookings = load_bookings()
-    bookings.append(booking)
+    bookings.append(new_booking)
     with open(BOOKINGS_FILE, "w") as f:
-        json.dump(bookings, f, indent=4)
+        json.dump(bookings, f, indent=2)
 
 @app.route("/")
 def home():
@@ -55,8 +55,6 @@ def contact():
         return render_template("contact.html", success=True)
     return render_template("contact.html", success=False)
 
-from datetime import datetime
-
 @app.route("/book/<int:acc_id>", methods=["GET", "POST"])
 def book(acc_id):
     acc = next((a for a in accommodations if a["id"] == acc_id), None)
@@ -70,23 +68,32 @@ def book(acc_id):
             start_date_str = request.form["start_date"]
             end_date_str = request.form["end_date"]
 
-            # Convert strings to datetime.date objects
             check_in_date = datetime.strptime(start_date_str, "%Y-%m-%d").date()
             check_out_date = datetime.strptime(end_date_str, "%Y-%m-%d").date()
 
-            # Validate date range
             if check_out_date <= check_in_date:
-                return "Check-out date must be after check-in date.", 400
+                flash("Check-out date must be after check-in date.", "danger")
+                return redirect(url_for("book", acc_id=acc_id))
+
+            booking = {
+                "accommodation": acc["name"],
+                "name": name,
+                "email": email,
+                "check_in": start_date_str,
+                "check_out": end_date_str
+            }
+            save_booking(booking)
+
+            acc["available"] = False
+
+            flash("Booking confirmed!", "success")
+            return redirect(url_for("home"))
 
         except Exception as e:
-            return f"Error processing booking: {e}", 400
-
-        acc["available"] = False
-        print(f"Booking confirmed for {name} ({email}) from {check_in_date} to {check_out_date} at {acc['name']}")
-        return redirect(url_for("home"))
+            flash(f"Booking failed: {e}", "danger")
+            return redirect(url_for("book", acc_id=acc_id))
 
     return render_template("booking.html", accommodation=acc)
-
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
