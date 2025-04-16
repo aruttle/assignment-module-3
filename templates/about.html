@@ -1,5 +1,59 @@
 {% extends "base.html" %}
+
+{% block title %}About Us{% endblock %}
+
 {% block content %}
-    <h2>Welcome to Smart guys!</h2>
-    <p>Your next adventure starts here.</p>
+<div class="container py-5">
+  <div class="col-lg-10 mx-auto bg-light p-5 rounded shadow">
+    <h2 class="text-center mb-4">About Our Glamping Haven</h2>
+    
+    <p class="lead text-center">
+      Welcome to your escape — a luxury glamping experience nestled in the heart of West Limerick.
+      Whether you're seeking adventure, rest, or reconnection, our site offers a one-of-a-kind stay
+      surrounded by nature, history, and comfort.
+    </p>
+
+    <hr class="my-4">
+
+    <h4>Our Story</h4>
+    <p>
+      Born from a love of the wild outdoors and the comfort of cozy living, our glampsite was created
+      as a haven for those looking to unwind, recharge, and immerse themselves in natural beauty. 
+      With stunning views of the historic Shanid Castle and access to the scenic Limerick Greenway,
+      our location is perfect for both relaxation and exploration.
+    </p>
+
+    <h4 class="mt-4">What We Offer</h4>
+    <ul class="list-unstyled ps-3">
+      <li>Luxury Yurts, Eco Cabins, and Treehouses</li>
+      <li>Private fire pits, outdoor dining, and starry skies</li>
+      <li>Shower and bathroom facilities</li>
+      <li>On-site parking and complimentary local guides</li>
+      <li>Walking and cycling access to the Limerick Greenway</li>
+    </ul>
+
+    <h4 class="mt-4">Sustainability Commitment</h4>
+    <p>
+      We’re proud to be eco-conscious. Our accommodations are built with sustainability in mind, 
+      using renewable energy sources, natural materials, and thoughtful design to minimize our impact 
+      and celebrate the land we live on.
+    </p>
+
+    <h4 class="mt-4">Meet Your Hosts</h4>
+    <p>
+      We're a family run business who love our home and want to share its magic with others.
+      From the welcome basket to local tips, we’re here to make your stay unforgettable.
+    </p>
+
+    <h4 class="mt-4">What Our Guests Say</h4>
+    <blockquote class="blockquote px-3">
+      <p class="mb-0">"Waking up to the sunrise over Shanid Castle was pure magic. The perfect balance of wild and luxury."</p>
+      <footer class="blockquote-footer mt-1">— A happy guest</footer>
+    </blockquote>
+
+    <div class="text-center mt-5">
+      <a href="{{ url_for('gallery') }}" class="btn btn-success btn-lg">View Our Gallery</a>
+    </div>
+  </div>
+</div>
 {% endblock %}
