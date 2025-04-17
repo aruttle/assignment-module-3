@@ -11,7 +11,7 @@ BOOKINGS_FILE = "bookings.json"
 # accommodations
 accommodations = [
     {"id": 1, "name": "Luxury Yurt", "price": 120, "available": True, "image": "yurt.jpg"},
-    {"id": 2, "name": "Eco Cabin", "price": 150, "available": False, "image": "cabin.jpg"},
+    {"id": 2, "name": "Eco Cabin", "price": 150, "available": True, "image": "cabin.jpg"},
     {"id": 3, "name": "Treehouse", "price": 180, "available": True, "image": "treehouse.jpg"},
 ]
 

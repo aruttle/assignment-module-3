@@ -159,13 +159,6 @@ h2 {
 
 .swiper-slide img {
     height: 500px;          
-    /* width: auto;             */
-    /* object-fit: cover;       */
     border-radius: 10px;    
   }
 
-  #contactForm {
-    /* max-width: 900px; */
-    /* width: 400px; 
-    margin: 0 auto;  */
-  }
