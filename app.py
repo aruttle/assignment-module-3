@@ -8,7 +8,7 @@ app.secret_key = 'supersecretkey'  # Needed for flashing messages
 
 BOOKINGS_FILE = "bookings.json"
 
-# Sample accommodations
+# accommodations
 accommodations = [
     {"id": 1, "name": "Luxury Yurt", "price": 120, "available": True, "image": "yurt.jpg"},
     {"id": 2, "name": "Eco Cabin", "price": 150, "available": False, "image": "cabin.jpg"},
@@ -32,6 +32,17 @@ def save_booking(new_booking):
     bookings.append(new_booking)
     with open(BOOKINGS_FILE, "w") as f:
         json.dump(bookings, f, indent=2)
+
+# Get booked date ranges for accommodation
+def get_booked_dates(acc_name):
+    bookings = load_bookings()
+    return [
+        (
+            datetime.strptime(b["check_in"], "%Y-%m-%d").date(),
+            datetime.strptime(b["check_out"], "%Y-%m-%d").date()
+        )
+        for b in bookings if b["accommodation"] == acc_name
+    ]
 
 @app.route("/")
 def home():
@@ -61,6 +72,9 @@ def book(acc_id):
     if not acc or not acc["available"]:
         return "Accommodation not available", 400
 
+    # Get already booked dates for this accommodation
+    booked_dates = get_booked_dates(acc["name"])
+
     if request.method == "POST":
         try:
             name = request.form["name"]
@@ -71,10 +85,18 @@ def book(acc_id):
             check_in_date = datetime.strptime(start_date_str, "%Y-%m-%d").date()
             check_out_date = datetime.strptime(end_date_str, "%Y-%m-%d").date()
 
+            # Validate date range
             if check_out_date <= check_in_date:
                 flash("Check-out date must be after check-in date.", "danger")
                 return redirect(url_for("book", acc_id=acc_id))
 
+            # Check for date overlap
+            for booked_start, booked_end in booked_dates:
+                if not (check_out_date <= booked_start or check_in_date >= booked_end):
+                    flash("Selected dates are not available. Please choose different dates.", "danger")
+                    return redirect(url_for("book", acc_id=acc_id))
+
+            # Save booking
             booking = {
                 "accommodation": acc["name"],
                 "name": name,
@@ -84,6 +106,7 @@ def book(acc_id):
             }
             save_booking(booking)
 
+            # Mark as booked (you may later want to remove this if handling availability by date instead)
             acc["available"] = False
 
             flash("Booking confirmed!", "success")
@@ -93,7 +116,8 @@ def book(acc_id):
             flash(f"Booking failed: {e}", "danger")
             return redirect(url_for("book", acc_id=acc_id))
 
-    return render_template("booking.html", accommodation=acc)
+    return render_template("booking.html", accommodation=acc, booked_dates=booked_dates)
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
