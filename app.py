@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 import json
 import os
 from datetime import datetime
@@ -43,6 +43,16 @@ def get_booked_dates(acc_name):
         )
         for b in bookings if b["accommodation"] == acc_name
     ]
+
+# Error handling for 404
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template("errors/404.html", error=error), 404
+
+# Error handling for 500
+@app.errorhandler(500)
+def internal_server_error(error):
+    return render_template("errors/500.html", error=error), 500
 
 @app.route("/")
 def home():

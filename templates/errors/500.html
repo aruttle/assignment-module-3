@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Internal Server Error{% endblock %}
+
+{% block content %}
+    <div class="container text-center">
+        <h1>Internal Server Error</h1>
+        <p>Code: {{ error.code }}</p>
+        <p>Name: {{ error.name }}</p>
+        <p>Description: {{ error.description }}</p>
+        <p><a href="{{ url_for('home') }}" class="btn btn-primary">Back to Home</a></p>
+    </div>
+{% endblock %}
