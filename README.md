@@ -175,42 +175,72 @@ Simple and clean form with name, email, and message fields.
 [Link to view the image](./docs/silktide.png)
 
 ## Site Features 
-- Responsive at max-width: 1024px and max-width: 768px.
-- Works in browsers Chrome, Edge and Firefox.
-- The colour palette used for the visual design was in keeping with the background image sunset.
-- The Navigation bar is consistent across all pages.
-- The Banner is also consistent across all pages.
-- Site has a Home Page and 2 content pages.
-- Meta Tags used as outlined above.
-- YouTube videos embedded.
-- CSS Transition also added to hyperlinks and nav buttons.
-- Bootstrap implemented
-- API implemented 
+### Site Features:
+- **Type**: Flask app with HTML, CSS, and JS
+- **Hosting**: Render
+- **Design**: 
+  - Bootstrap layout with responsive styling
+  - Consistent branding (logo, font, colors)
+- **Purpose/Theme**: Shanid Glamping with a clear, consistent theme
+- **Pages**: 
+  - Home
+  - About
+  - Gallery
+  - Contact
+  - Booking
+- **Navigation**: Easy access between pages
+- **External Libraries**:
+  - Swiper carousel on the Gallery page
+  - Bootstrap 5 for styling
+- **Forms**:
+  - Contact form with validation
+  - Booking form with date validation
+- **User Feedback**:
+  - Flash messages for booking and contact success
+- **Data Persistence**: JSON-based storage for booking data
+- **Interactivity/Dynamic Elements**:
+  - Swiper carousel for Gallery
+  - Date picker for Booking form
+  - Button interactions
+- **Modern Features**:
+  - Bootstrap 5
+  - Swiper
+  - Flask for backend handling
 
 
 ## Future Enhancements
-With more time, I would have liked to incorporate the following:
-- Allow users to input their location for personalized weather updates.
-- Add more knots and quizzes to enhance the content.
-- Improve error handling in case of API failures.
-- Provide users with the option to save and track their quiz scores over time.
+With more time I would have liked to implement the following:
+
+## Database Integration
+Replace the JSON-based booking storage with a full-featured database (e.g., SQLite, PostgreSQL) 
+
+## User Accounts
+Implement user registration and login functionality so guests can view, manage, or cancel their bookings.
+
+## Admin Dashboard
+Create an admin panel to manage accommodations, view bookings, update availability, and track analytics.
+
+## Date Picker Calendar
+Integrate a more advanced calendar UI for selecting available booking dates per accommodation.
+
+## Email Confirmation
+Automatically send a confirmation email to guests once a booking is made, with booking details and contact info.
+
+## Modular Python structure
+Move my code to a modular structure i.e from app.py to run.py with routes and models.
+
  
 
 ## Challenges
-During the development I came across many coding challenges, using MDN, our college notes and some AI queries I was able to solve most, some examples: 
-    Images used were being cropped so I found a line of css to fix this: 
-![image crop](./docs/image-crop.png)
+### During the development I came across many coding challenges, using MDN, our college notes and some AI queries I was able to solve most, some examples: 
+I attempted to move my code to a modular structure i.e from app.py to run.py with routes and models but I kept getting builder errors and eventually 
+I had to revert back to my original structure as I was running out of time. 
+![image crop](./docs/new-structure.png)
+![image crop](./docs/new-structure-build-errors.png)
 
-Also trying to get the quiz function to work. Initially it worked but kept returning to the first question if user answers incorrectly. Questions also repeat which was not ideal:
-![quiz issue](./docs/quiz-issue.png)
-I managed to get this working in the end but would have liked to add more functionality to it if I had more time.
+Getting Flask and Render to work with my code at the start had its challenges, one issue for me was Flask would not run on port 5000. I added app.run(debug=True, port=8080) to my code to use port 8080 but it would still run on port 5000. To address this, every time I ran Flask I used the prompt "flask run --host=0.0.0.0 --port=8080" to force Flask to us port 8080. Once I done this Flask ran correctly. 
 
-Another issue I faced, Vscode uninstalled itself from my pc, which was worrying (as I use Vscode everyday in my day job). Its not an unknown issue:    
-![quiz issue](./docs/vscode-issue.png)
-I was able to reinstall it but had issues cloning the repo again, that is why there two links. 
 
-One very strange issue I came across in Vscode was a failed to tokenize error, I could not use the comparison symbol '<=' even in the comments. I have still not fixed this issue yet even after speaking to experienced developers and web searches: 
-![quiz issue](./docs/tokenize.png)
 
 
 
