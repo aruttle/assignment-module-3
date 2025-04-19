@@ -142,8 +142,10 @@ Simple and clean form with name, email, and message fields.
 
 ## List of sources
 ### Images
-    All images used are from Pixabay:
-    https://pixabay.com/illustrations/search/cleat%20hitch/
+   Images of pods:
+   https://app.klingai.com/
+
+   All other images are my own
 
 
 ### API
@@ -156,10 +158,8 @@ Simple and clean form with name, email, and message fields.
     Swiper:
     https://swiperjs.com/
 
-
-
 ### Logo
-    The logo was created in PowerPoint.
+    The logo was created in PowerPoint from own image.
 
 ## SEO Features
     I used meta-keywords and sitemap.xml
