@@ -70,53 +70,80 @@ Click [here](./docs/wireframes.pdf)
 ## Planning Analysis Sheet
 ### Website goal
     
-The project aims to create an interactive knot guide and quiz app for outdoor enthusiasts, focusing on activities like sailing, camping, and climbing. It provides detailed instructions, images, and videos for various knots, along with a quiz to test users' knowledge and a leaderboard to track scores. Additionally, the app integrates real-time weather API data. By combining educational content and user engagement the platform serves as both a learning resource and a fun way for users to enhance their outdoor skills.
+The goal of this website is to provide a simple, responsive platform for a (fictional) glamping business located near the Shannon Estuary. Visitors can explore available accommodations, view photos of the site, and make bookings through an intuitive interface. The site is built using Flask and follows the courses modern web design principles to ensure accessibility, interactivity, and ease of use on both desktop and mobile devices.
 
 ## Features
 
-- **Knot Guide**: A selection of commonly used knots with step-by-step instructions, images, and videos.
-- **Knot Quiz**: A fun and interactive quiz to test your knowledge about knots.
-- **Weather Information**: Displays current weather information (temperature and wind speed) for a specified location.
-- **Interactive Elements**: Dropdown menus for selecting knots, dynamic quiz forms, and displaying real-time weather data.
+**Interactive Booking System** – Users can view available accommodations and make bookings directly through the site.
+
+**Responsive Design** – Optimized using bootstrapping for seamless viewing and interaction across mobile, tablet, and desktop devices.
+
+**Dynamic Content** – Pages like Gallery and About are easily updatable and render content dynamically.
+
+**Easy to Navigate UI** – Built using a consistent and easy-to-navigate layout.
+
+**Flask Backend** – Lightweight and efficient Python framework for routing and handling form submissions.
+
+**Templating** – Reduces repetition with reusable HTML components and template inheritance.
+
+**Local JSON Data Handling** – Stores and retrieves booking data using JSON for simplicity and portability.
+
 
 ## How to Use
 
-### 1. **Knot Guide**:
-   - Select a knot from the dropdown menu to view detailed instructions, images, and a demonstration video.
-   
-### 2. **Knot Quiz**:
-   - Answer the quiz questions to test your knowledge of knots. After completing the quiz, your score will be shown.
-   - You can also save your score and see a leaderboard of top scores.
+### **Accommodation Browser**
+Browse a list of glamping accommodations.
 
-### 3. **Weather Info**:
-   - The weather section displays the current temperature and wind speed for a specified location (Dublin, Ireland by default).
-   - You can update the location if desired (future enhancement).
-## List the working title of each page on your site.
-### Home
-    Goal: Provide an introduction to the app, featuring a welcome note and a brief overview of why we need knots, there will be a carousel with images of common useful sailing knots and a weather section to demo API usage. 
-    
-### Knot Guide 
-    The Knot Guide Page is designed to teach users how to tie various knots commonly used in outdoor activities like sailing, camping, and climbing. It features a dropdown menu for selecting a specific knot, with detailed instructions, an image, and a video demonstrating the tying process. Each knot also includes a section explaining its common uses and practical applications, helping users understand when and why to use it. The page offers clear visuals and interactive learning through videos, allowing users to visualize the knot-tying process. Its main goal is to educate users on different knots, their uses, and how to tie them, making it an essential resource for outdoor enthusiasts and anyone interested in learning practical knot-tying skills.
+Each listing includes a name, description, and image.
 
+Click the "Book Now" button to begin the booking process for your selected accommodation.
 
-### Knots Quiz
-    The Quiz Page is designed to test users' knowledge of the knots featured on the site. It presents a series of multiple-choice questions related to the knots, their uses, and how to tie them. Users answer the questions, and the page provides immediate feedback, indicating whether the answer is correct or incorrect. The quiz is interactive, with questions shuffled randomly to maintain engagement. After completing the quiz, users are given a score, and there's an option to save their score along with their name in local storage for future reference. The page also includes a leaderboard to display the top scores, encouraging users to revisit and improve their performance. The main goal of the quiz page is to reinforce learning from the Knot Guide page and provide a fun, interactive way to test users' knot knowledge.
+### **Booking System**
+Fill out a simple form with your name, check-in and check-out dates.
+
+Once submitted, a booking confirmation appears with all your details.
+
+Dates are validated to prevent booking overlaps.
+
+Your booking is saved and viewable for confirmation purposes.
+
+### **Gallery**
+Explore images of the glamping site and surrounding landscape.
+
+Great for getting a feel for the experience before you book.
+
+### **About Page**
+Learn about the fictional story behind the site and why it was created and what makes it unique.
+
+Includes a brief look at the location, values, and eco-friendly focus.
+
+### **Contact Page**
+A contact form allows users to reach out with inquiries or special requests.
+
+Simple and clean form with name, email, and message fields.
+
+# Working Page Titles and Goals
+
+## Home
+**Goal:** Welcome users to the site and highlight the charm of glamping near the Shannon Estuary. Provides an overview of offerings and encourages users to explore accommodations.
+
+## Booking
+**Goal:** Enable users to select their preferred dates and accommodation. It provides a streamlined booking form with real-time validation and user-friendly feedback.
+
+## Gallery
+**Goal:** Visually showcase the glamping experience, highlighting natural beauty and unique setups.
+
+## About
+**Goal:** Introduce the purpose behind the business and the benefits of this specific location. Builds trust and a sense of connection.
+
+## Contact
+**Goal:** Provide an easy way for users to reach out for questions, requests, or feedback.
 
 
 ## List of sources
 ### Images
     All images used are from Pixabay:
     https://pixabay.com/illustrations/search/cleat%20hitch/
-    
-### Video 
-    The videos used are from YouTube:
-    https://youtu.be/hIdsTZTUl6E
-    https://youtu.be/aewgmUeHpuE
-    https://youtu.be/tFffbkXSgNI
-    https://youtu.be/aprfVTaxkk0
-    https://youtu.be/NOg85_tYk04
-    https://youtu.be/q93YpbVEXAM
-
 
 
 ### API
